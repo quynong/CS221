@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PII Detection Demo - Vietnamese Text</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🔒 PII Detection System</h1>
+            <p class="subtitle">Phát hiện thông tin nhận dạng cá nhân trong văn bản tiếng Việt</p>
+        </header>
+
+        <div class="main-content">
+            <div class="input-section">
+                <div class="input-header">
+                    <h2>Nhập văn bản cần kiểm tra</h2>
+                    <div class="button-group">
+                        <button id="clearBtn" class="btn btn-secondary">Xóa</button>
+                        <button id="exampleBtn" class="btn btn-secondary">Ví dụ</button>
+                        <button id="analyzeBtn" class="btn btn-primary">
+                            <span class="btn-text">Phân tích</span>
+                            <span class="btn-loader" style="display: none;">⏳</span>
+                        </button>
+                    </div>
+                </div>
+                <textarea 
+                    id="textInput" 
+                    class="text-input" 
+                    placeholder="Nhập hoặc dán văn bản tiếng Việt cần kiểm tra PII tại đây..."
+                    rows="8"
+                ></textarea>
+                <div class="input-footer">
+                    <span id="charCount" class="char-count">0 ký tự</span>
+                    <span id="status" class="status"></span>
+                </div>
+            </div>
+
+            <div id="resultsSection" class="results-section" style="display: none;">
+                <div class="results-header">
+                    <h2>Kết quả phát hiện</h2>
+                    <div class="results-stats" id="resultsStats"></div>
+                </div>
+
+                <div class="results-content">
+                    <div class="result-card">
+                        <h3>Văn bản với PII được đánh dấu</h3>
+                        <div id="highlightedText" class="highlighted-text"></div>
+                    </div>
+
+                    <div class="result-card">
+                        <h3>Danh sách thực thể phát hiện được</h3>
+                        <div id="entitiesList" class="entities-list"></div>
+                    </div>
+
+                    <div class="result-card">
+                        <h3>Chi tiết từng token</h3>
+                        <div id="tokensList" class="tokens-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="errorSection" class="error-section" style="display: none;">
+                <div class="error-card">
+                    <h3>❌ Lỗi</h3>
+                    <p id="errorMessage"></p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Powered by mBERT (multilingual BERT) | PII Detection System for Vietnamese Text</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
+
